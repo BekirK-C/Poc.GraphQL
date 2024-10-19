@@ -1,0 +1,6 @@
+﻿services:
+  graphql.api:
+    image: graphql.api
+    build:
+      context: .
+      dockerfile: GraphQL.API/Dockerfile
