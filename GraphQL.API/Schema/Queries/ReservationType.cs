@@ -8,4 +8,12 @@ public class ReservationType
     public int NumberOfGuests { get; set; }
     public string Status { get; set; }
     public List<ProfileType> Profile { get; set; }
+
+    public Guid GetRandomValue()
+    {
+        var random = new Random();
+        Id = Guid.NewGuid();
+        return Id;
+
+    }
 }
