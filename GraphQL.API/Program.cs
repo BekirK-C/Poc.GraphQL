@@ -1,10 +1,11 @@
+using GraphQL.API.Schema.Mutations;
 using GraphQL.API.Schema.Queries;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddGraphQLServer().AddQueryType<Query>();
+builder.Services.AddGraphQLServer().AddQueryType<Query>().AddMutationType<ReservationMutation>();
 
 var app = builder.Build();
 
