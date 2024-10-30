@@ -352,3 +352,4 @@ healthchecksdb
 MigrationBackup/
 
 *.rsa
+/GraphQL.API/obj/Debug
