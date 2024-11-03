@@ -27,7 +27,9 @@ public class Query
     
 
     public string Hello() => "Hello World!";
-    public List<ReservationType> Reservations() => _fakeReservation.Generate(3);
+    
+    [UsePaging(DefaultPageSize = 10)]
+    public List<ReservationType> Reservations() => _fakeReservation.Generate(21);
 
     public ReservationType GetReservation(Guid id)
     {
