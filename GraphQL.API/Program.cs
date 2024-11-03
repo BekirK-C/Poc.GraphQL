@@ -8,7 +8,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddGraphQLServer()
     .AddQueryType<Query>()
     .AddMutationType<ReservationMutation>()
-    .AddFiltering();
+    .AddFiltering()
+    .AddSorting();
 
 var app = builder.Build();
 
