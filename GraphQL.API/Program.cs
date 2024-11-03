@@ -5,7 +5,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddGraphQLServer().AddQueryType<Query>().AddMutationType<ReservationMutation>();
+builder.Services.AddGraphQLServer()
+    .AddQueryType<Query>()
+    .AddMutationType<ReservationMutation>()
+    .AddFiltering();
 
 var app = builder.Build();
 
