@@ -31,6 +31,7 @@ public class Query
     [UsePaging(DefaultPageSize = 10)]
     [UseFiltering]
     [UseSorting]
+    [UseProjection]
     public List<ReservationType> Reservations() => _fakeReservation.Generate(21);
 
     public ReservationType GetReservation(Guid id)

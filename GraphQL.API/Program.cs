@@ -9,7 +9,8 @@ builder.Services.AddGraphQLServer()
     .AddQueryType<Query>()
     .AddMutationType<ReservationMutation>()
     .AddFiltering()
-    .AddSorting();
+    .AddSorting()
+    .AddProjections();
 
 var app = builder.Build();
 
