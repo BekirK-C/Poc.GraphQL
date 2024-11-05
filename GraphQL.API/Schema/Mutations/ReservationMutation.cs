@@ -1,4 +1,6 @@
 using GraphQL.API.Schema.Queries;
+using GraphQL.API.Schema.Subscriptions;
+using HotChocolate.Subscriptions;
 
 namespace GraphQL.API.Schema.Mutations;
 
@@ -6,7 +8,7 @@ public class ReservationMutation
 {
     private static readonly List<Guid> Reservations = [];
 
-    public List<Guid> CreateReservation(CreateReservationInput input)
+    public async Task<List<Guid>> CreateReservation(CreateReservationInput input, ITopicEventSender eventSender)
     {
         var reservation = new ReservationType
         {
@@ -19,6 +21,8 @@ public class ReservationMutation
         };
         
         Reservations.Add(reservation.Id);
+        
+        await eventSender.SendAsync(nameof(Subscription.OnReservationCreated), reservation);
         
         return Reservations;
     }
